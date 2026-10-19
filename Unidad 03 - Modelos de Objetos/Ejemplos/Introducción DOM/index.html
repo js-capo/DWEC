@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  En esta parte se indica el titulo del documento y algunas etiquetas de metadatos, como
+    la codificación (meta charset ), etc.... -->
+    <title>Introduccion al DOM</title>
+</head>
+<body>
+    <!-- En el body ya se introduce todo el cuerpo de la página -->
+    <header>
+    Esto es la cabecera
+    </header>
+    <!-- p  párrafo -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aliquid? Voluptatem veniam velit at harum suscipit nobis quae itaque possimus mollitia, ut ipsa eos dicta dolorum, inventore similique dolor voluptatum!</p>
+
+    <!-- ul es una lista no ordenada -->
+    <ul id="lista1">
+        <!-- li es el elemento de la lista -->
+        <li>Elemento1</li>
+        <li>Elemento2</li>
+        <li>Elemento3</li>
+        <li>Elemento4</li>
+        <li>Elemento5</li>
+        <li>Elemento6</li>
+    </ul>
+     <!-- ol es una lista ordenada -->
+    <ol class="lista-azul">
+        <li class="elemento-sublista">Este es un elemento</li>
+        <li class="elemento-sublista">Este es otro elemento</li>
+    </ol>
+    <div id="div0"></div>
+    <!-- div  es como una capa o bloque. Id es el identificador del elemento -->
+    <div id="div1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt nisi nobis itaque asperiores sint totam! Recusandae ratione possimus quis nisi? Dicta esse eum in tempore tempora dolore saepe ut.</p>
+        <!-- cite para que salga una cita con su formato de cita -->
+        <cite>Bla bla bla</cite>
+        <ul>
+            <li>Opcion1</li>
+            <li>Opcion2</li>
+            <li><cite>Bla bla bla</cite></li>
+        </ul>
+    </div>
+
+    <div id="enlaces">
+        <!-- href son los enlaces-->
+        <a href="https://google.es">Ir a google</a>
+        <a href="https://wikipedia.es">Ir a wikipedia</a>
+        <a href="https://youtube.es">Ir a youtube</a>
+    </div>
+
+    <div>
+        <!-- label es la etiqueta y los input los controles de entrada, dependiendo del type -->
+        <label>Nombre: </label>
+        <input type="text" placeholder="Introduce tu nombre"/>
+    </div>
+    
+    <br>
+
+    <div>
+        <label>Edad: </label>
+        <input type="number" placeholder="Introduce tu edad"/>
+    </div>
+    
+    <br>
+
+    <div>
+        <label>Altura: </label>
+        <input type="number" placeholder="Introduce tu altura"/>
+    </div>
+
+    <!-- span muestra un bloque que se muestra en linea, por lo que Hola y Adios
+    deberían verse seguidos -->
+    <span>Hola</span>
+    <span>Adios</span>
+
+    <br>
+    <br>
+    <br>
+
+    <form>
+        <label for="">Sexo</label>
+        <br>
+<!-- Es importante que los radiobutton tengan el mismo name , para indicar que las opciones van sobre sexo y solo deje clickar uno en cada momento-->
+        <input type="radio" id="radioM" name="sexo" value="m">
+        <label for="radioM">Masculino</label>
+
+        <input type="radio" id="radioF" name="sexo" value="f">
+        <label for="radioF">Femenino</label>
+
+        <br>
+        <br>
+
+        <input type="checkbox" name="tyc" id="checkboxTerminosYCondiciones">
+        <label for="checkboxTerminosYCondiciones">Acepto los terminos y condiciones</label>
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <ul>
+        <li>Boton1: Sacar cuantos hijos tiene el elemento con id div1 (usando getElementById)</li>
+        <li>Boton2: Extraer todos los enlaces de la página (mostrar todas las urls de dichos enlaces) (usando getElementsByTagName)</li>
+        <li>Boton3: Sacar los textos de los elementos que tiene la clase elemento-sublista (usando getElementsByClassName)</li>
+        <li>Boton4: Sacar cuantos hijos tiene el elemento con id div1 (usando querySelector)</li>
+        <li>Boton5: Extraer todos los enlaces de la página (mostrar todas las urls de dichos enlaces) (usando querySelectorAll)</li>
+        <li>Boton6: Sacar los textos de los elementos que tiene la clase elemento-sublista (usando querySelectorAll)</li>
+        <li>Boton7: Sacar cuantos elementos hay que sean input de tipo numerico (usar querySelectorAll, (no usar getElementsByTagName y discriminar por tipo))</li>
+        <li>Boton8: Agregar un nuevo elemento li (texto: elemento agregado desde codigo)a la lista con id lista1</li>
+        <li>Boton9: Eliminar el primer elemento de la lista con id lista1</li>
+        <li>Boton10: Cambiar el texto del ultimo elemento de la lista con id lista1 y que ponga como texto ultimo elemento</li>
+        <li>Boton11: Agregar un enlace que nos lleve a Spotify</li>
+        <li>Boton12: Cambiar el texto (usando innerText) del body y que sea un h1 diciendo Hola a todos</li>
+        <li>Boton13: Cambiar el html (usando innerHTML) del body y que sea un h1 diciendo Hola a todos</li>
+        <li>Boton14: El boton debe marcar como activo (checked) la opcion de masculino</li>
+        <li>Boton15: El boton debe marcar como activo (checked) la opcion de femenino</li>
+        <li>Boton16: Activar el checkbox con id checkboxTerminosYCondiciones mediante codigo</li>
+        <li>Boton17: Desactivar el checkbox con id checkboxTerminosYCondiciones mediante codigo</li>
+    </ul>
+    <!-- button son los botones que con el onclick asignamos la función que se ejecutará
+    al pulsar el botón -->
+    <button onclick="boton1();">Boton1</button>
+    <button onclick="boton2();">Boton2</button>
+    <button onclick="boton3();">Boton3</button>
+    <button onclick="boton4();">Boton4</button>
+    <button onclick="boton5();">Boton5</button>
+    <button onclick="boton6();">Boton6</button>
+    <button onclick="boton7();">Boton7</button>
+    <button onclick="boton8();">Boton8</button>
+    <button onclick="boton9();">Boton9</button>
+    <button id="btn10">Boton10</button>
+    <button id="btn11">Boton11</button>
+    <button id="btn12">Boton12</button>
+    <button id="btn13">Boton13</button>
+    <button id="btn14">Boton14</button>
+    <button id="btn15">Boton15</button>
+    <button id="btn16">Boton16</button>
+    <button id="btn17">Boton17</button>
+     <!-- footer es el pie de página-->
+    <footer>
+    Esto es el pie de pagina
+    </footer>
+
+    <!-- estilos -->
+    <style>
+        .lista-azul {
+            background-color: darkcyan;
+        }
+
+        .elemento-sublista {
+            color: blue;
+        }
+
+        #lista1 {
+            font-size: 22px;
+        }
+
+        li {
+            font-style: italic;
+        }
+
+        #div1 {
+            width: 50%;
+            background-color: brown;
+            padding: 10px;
+        }
+
+        #div1 > p {
+            background-color: darkblue;
+        }
+
+        #div1 > cite {
+            background-color: darkorange;
+        }
+    </style>
+    <!-- fin estilos -->
+
+    <!-- js -->
+    <script>
+        function boton1() {
+            let e = prompt("Introduce el id del elemento del que quieres saber cuantos hijos tiene");
+            if (e == null || e == "") {
+                alert("¡No has introducido ningun id!");
+                return;
+            } else {
+                let elemento = document.getElementById(e);
+                if (elemento == null) {
+                    alert(`El elemento con id ${e} no existe`);
+                    return;
+                } else {
+                    // children me da el array de elementos hijos y con el .length
+                    // me dá la longitud del array 
+                    let numHijos = elemento.children.length;
+                    // let numHijos = elemento.childElementCount;
+                    if (numHijos == 0) {
+                        alert(`El elemento con id ${e} no tiene hijos`);
+                    }
+                    else {
+                        alert(`El elemento con id ${e} tiene ${numHijos} hijos`);
+                    }
+                }
+            }
+            
+        }
+
+        function boton2() {
+            /* Saca todo los elementos cuya etiqueta sea una a*/
+            let enlaces = document.getElementsByTagName("a");
+            /* Transformamos el HTM Collection que nos devuelva a un array*/
+            let enlacesArray = Array.from(enlaces);
+            /* Por cada elemento del array con el map, nos quedamos con el atributo href*/
+            let resultado = enlacesArray.map( enlace => enlace.href );
+            alert(`Los enlaces son: ${resultado}`);
+        }
+
+        function boton3() {
+            let resultado = [];
+            /* cogemos los elementos por ClassName= elemento-sublista*/
+            let elementos = document.getElementsByClassName("elemento-sublista");
+            /* Al ser HTML collection una colección iterable lo recorremos con el for of 
+            y metenemos en el array resultado el texto de cada elemento con el innerText*/
+            for(const elemento of elementos) {
+                resultado.push(elemento.innerText);
+            }
+
+            alert(`Los textos de los elementos con clase elemento-sublista son los siguientes: ${resultado}`);
+        }
+
+        function boton4() {
+            /*Sacamos el numero de hijos que tiene div1 , pero utilizando querySelector. 
+            Al querySelector hay que pasarle un selector css, en este caso es #div1 */
+            let e = prompt("Introduce el elemento del que quieres saber cuantos hijos tiene (NOTA: utiliza . o # para indicar clase o id)");
+            if (e == null || e == "") {
+                alert("¡No has introducido ningun id!");
+                return;
+            } else {
+                let elemento = document.querySelector(e);
+            
+                if (elemento == null) {
+                alert(`El elemento con id ${e} no existe`);
+                return;
+                } else {
+                    // children me da el array de elementos hijos
+                    let numHijos = elemento.children.length;
+                    // let numHijos = elemento.childElementCount;
+                    if (numHijos == 0) {
+                        alert(`El elemento con id ${e} no tiene hijos`);
+                    }
+                    else {
+                        alert(`El elemento con id ${e} tiene ${numHijos} hijos`);
+                    }
+                }
+            }
+        }
+
+        function boton5() {
+            /* Esto hace los mismo que el botón  2,pero utilizando query Selector All 
+            en vez getElementsByTagName. Te devuelve una colección iterable nodelist y 
+            lo transformamos a Array*/
+            let enlaces = document.querySelectorAll("a");
+            let enlacesArray = Array.from(enlaces);
+
+            let resultado = enlacesArray.map( enlace => enlace.href );
+            alert(`Los enlaces son: ${resultado}`);
+        }
+
+        function boton6() {
+             /* Esto hace los mismo que el botón  3,pero utilizando query Selector All 
+            en vez getElementsByClassName. Te devuelve una colección iterable y nos 
+            creamos un array para almacenar los textos de los elementos*/
+            let resultado = [];
+            let elementos = document.querySelectorAll(".elemento-sublista");
+            for(const elemento of elementos) {
+                resultado.push(elemento.innerText);
+            }
+
+            alert(`Los textos de los elementos con clase elemento-sublista son los siguientes: ${resultado}`);
+        }
+
+          /* Con el querySelectorAll buscamos los input cuyo atributo type sea number */
+        function boton7() {
+            let elementos = document.querySelectorAll("input[type=number]");
+            alert(`Hay ${elementos.length} elementos de tipo input number`);
+        }
+
+
+        function boton8() {
+            // creo el elemento
+            let elementoLI = document.createElement("li");
+
+            // le pongo un texto
+            elementoLI.innerText = "elemento agregado desde codigo";
+            // tambien valdria para ponerle un texto
+            // li.appendChild(document.createTextNode("elemento agregado desde codigo"));
+            /* una vez creado el elemento se localiza la lista1 y se hace appendChild sobre ella,
+            agregando lo que le pases al final*/
+            let lista = document.getElementById("lista1");
+            lista.appendChild(elementoLI);
+        }
+
+        function boton9() {
+            /* Sacamos el primer elemento de la lista #lista1 y lo elimina*/
+            let primerElementoDeLaLista = document.querySelector("#lista1 :first-child");
+            // tambien podriamos hacerlo de la siguiente manera
+            // document.getElementById("lista1").children[0];
+            if (primerElementoDeLaLista != null) {
+                primerElementoDeLaLista.remove();
+            }
+            else {
+                alert("La lista esta vacia o no existe");
+            }
+        }
+
+        function boton10() {
+             /* Sacamos el último  elemento de la lista #lista1 y actualiza su texto*/
+            let ultimoElementoLista = document.querySelector("#lista1 :last-child");
+            // tambien podriamos hacerlo de la siguiente manera
+            // let lista = document.getElementById("lista1");
+            // ultimoElementoLista = lista.children[lista.length - 1];
+            if (ultimoElementoLista != null) {
+                ultimoElementoLista.innerText = "ultimo elemento";
+            }
+            else {
+                alert("La lista esta vacia o no existe");
+            }
+        }
+
+        function boton11() {
+            /*Se crea el elemento a, le ponemos texnto con InnerText y con el atributi href
+            le indicamos el destino. Posteriormente lo creado se agrega a Enlaces con el appendChild */
+            let elementoEnlace = document.createElement("a");
+            elementoEnlace.innerText = "Ir a Spotify";
+            elementoEnlace.setAttribute("href", "https://spotify.com");
+            
+            // document.querySelector("#enlaces").appendChild(elementoEnlace);
+            document.getElementById("enlaces").appendChild(elementoEnlace);
+        }
+
+        document.getElementById("btn10").addEventListener("click", boton10);
+        document.getElementById("btn11").addEventListener("click", boton11);
+        /* con InnerText asignamos texto por eso h1 que es html no lo interpreta*/
+        document.getElementById("btn12").addEventListener("click", function() {
+            document.body.innerText = "<h1>Hola a Todos</h1>";
+        });
+        /* con InnerHTML interpreta el HTML. */
+        document.getElementById("btn13").addEventListener("click", function() {
+            document.body.innerHTML = "<h1>Hola a Todos</h1>";
+        });
+        /* cuando trabajamos con radio button lo mejor es desactivar el resto y activar el que se quiere */
+        document.getElementById("btn14").addEventListener("click", function() {
+            document.getElementById("radioF").checked = false;
+            document.getElementById("radioM").checked = true;
+        });
+
+        document.getElementById("btn15").addEventListener("click", function() {
+            document.getElementById("radioM").checked = false;
+            document.getElementById("radioF").checked = true;
+        });
+
+        document.getElementById("btn16").addEventListener("click", function() {
+            document.getElementById("checkboxTerminosYCondiciones").checked = true;
+        });
+
+        document.getElementById("btn17").addEventListener("click", function() {
+            document.getElementById("checkboxTerminosYCondiciones").checked = false;
+        });
+
+    </script>
+    <!-- fin js -->
+</body>
+</html>

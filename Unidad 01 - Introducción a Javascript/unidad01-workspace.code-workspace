@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "Actividades"
+		},
+		{
+			"path": "Ejemplos"
+		},
+		{
+			"path": "Teoría"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Actividades"
+	}
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> // El JavaScript va dentro de una etiqueta script (NO RECOMENDADO ❗❗❗)
+
+        let valor=+prompt("Introduzca un valor entero");
+
+        const datos = "0123456789ABCDEF";
+
+        if (isNaN(valor) || valor < 0){
+
+            alert("El valor introducido no es correcto");
+
+        } else {
+
+            let hexadecimal = "";
+
+            valor = parseInt(valor);
+
+            while (valor>15) {
+                const resto = valor%16;
+
+                // Anteponemos el resto traducido para construir el resultado en orden inverso
+                hexadecimal = datos[resto] + hexadecimal; // Cogemos, de los caracteres hexadecimales, la posición dada a partir de la división con resto.
+                
+                valor = parseInt(valor/16);
+
+            }
+
+            // Añadimos el último cociente (que será un valor entre 0 y 15) al inicio de la cadena
+            hexadecimal = datos[valor] + hexadecimal;
+
+            alert(`El valor hexadecimal es: ${hexadecimal}`);
+        }
+
+    </script>
+</body>
+</html>

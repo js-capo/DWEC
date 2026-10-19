@@ -1,0 +1,7 @@
+Cada objeto deberá devolver 'this'.
+
+¿Por qué?
+
+1. Los métodos modifican y devuelven this.
+2. La propiedad final se lee directamente con . (sin paréntesis).
+3. Así se encadena todo: objeto.metodo().metodo().propiedad.

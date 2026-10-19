@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Cartera</title>
+        <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 15px;
+            color: #333;
+        }
+
+        #cantidad {
+            width: 260px;
+            padding: 8px 10px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-left: 6px;
+        }
+
+        .botones {
+            margin-top: 14px;
+        }
+
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 9px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        button:hover {
+            background-color: #155ec0;
+        }
+
+        #saldo {
+            margin-top: 22px;
+            font-size: 34px;
+            font-weight: bold;
+            color: #0000cc;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="cantidad-container">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" placeholder="Introduce la cantidad">
+        </div>
+
+        <div class="botones">
+            <button id="btnIngresar">Ingresar</button>
+            <button id="btnGastar">Gastar</button>
+        </div>
+
+        <div id="saldo">
+            Saldo : 0
+        </div>
+        <div id="mensaje">
+            
+        </div>
+        <script src="actividad05-03.js"></script>
+    </body>
+</html>

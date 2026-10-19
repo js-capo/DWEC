@@ -1,0 +1,1 @@
+console.log("Hoy es " + new Date().toLocaleDateString());

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 3. Clases ES6
+        class Persona {
+            constructor(nombre, edad) {
+                this.nombre = nombre;
+                this.edad = edad;
+            }
+        
+            saludar() {
+                console.log(`Hola, soy ${this.nombre}`);
+            }
+        }
+
+        const juan = new Persona("Juan", 30); 
+    </script>
+</body>
+</html>
