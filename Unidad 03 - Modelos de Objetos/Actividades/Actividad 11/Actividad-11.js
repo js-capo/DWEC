@@ -29,3 +29,5 @@ const monumentos = [
         foto: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Palacio_de_Ibaigane.jpg/250px-Palacio_de_Ibaigane.jpg?utm_source=es.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     }
 ];
+
+const contenedor = document.getElementById("cards");
