@@ -31,3 +31,17 @@ const monumentos = [
 ];
 
 const contenedor = document.getElementById("cards");
+
+if (contenedor) {
+    const html = monumentos.map((monumento) => `
+        <div class="card mb-5">
+            <img src="${monumento.foto}" class="card-img-top" alt="${monumento.titulo}">
+            <div class="card-body">
+                <h5 class="card-title">${monumento.titulo}</h5>
+                <p class="card-text">${monumento.cuerpo}</p>
+            </div>
+        </div>
+    `).join("");
+
+    contenedor.innerHTML = html;
+}
