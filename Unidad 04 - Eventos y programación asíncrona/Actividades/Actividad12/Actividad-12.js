@@ -2,7 +2,7 @@ const monumentos = [
     {
         titulo: "El Edificio del Ayuntamiento",
         cuerpo: "De pie al lado del bonito estuario, en la zona del Casco Viejo, el Ayuntamiento de Bilbao es un gran ayuntamiento, que data de la década de 1890. Con una gran fachada de estilo barroco y muchas características impresionantes, el interior es igualmente suntuoso y contiene una escalera imponente y una lujosa decoración. Por las mañanas se pueden realizar visitas guiadas al edificio.",
-        foto: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bilbao_-_Ayuntamiento_24.jpg/375px-Bilbao_-_Ayuntamiento_24.jpg"
+        foto: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Bilbao_-_Ayuntamiento_24.jpg/330px-Bilbao_-_Ayuntamiento_24.jpg"
     },
     {
         titulo: "Palacio de Chávarri",
