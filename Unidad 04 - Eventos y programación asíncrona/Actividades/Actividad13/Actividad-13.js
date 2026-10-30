@@ -5,8 +5,8 @@ const bilbao = {
     longitud: -2.92528
 };
 
-const tiempoActual = document.getElementById('tiempo-actual');
 const forecastContainer = document.getElementById('forecast');
+const cityName = document.getElementById('city-name');
 
 async function obtenerDatos(url) {
     const respuesta = await fetch(url);
@@ -18,66 +18,36 @@ async function obtenerDatos(url) {
     return await respuesta.json();
 }
 
-function construirCardActual(datos) {
-    const iconUrl = `https://openweathermap.org/img/wn/${datos.weather[0].icon}@2x.png`;
+function formatearFechaHora(timestamp, zonaHoraria) {
+    const fecha = new Date((timestamp + zonaHoraria) * 1000);
+    const dosDigitos = (valor) => String(valor).padStart(2, '0');
+
+    return `${fecha.getUTCFullYear()}-${dosDigitos(fecha.getUTCMonth() + 1)}-${dosDigitos(fecha.getUTCDate())} ${dosDigitos(fecha.getUTCHours())}:${dosDigitos(fecha.getUTCMinutes())}:${dosDigitos(fecha.getUTCSeconds())}`;
+}
+
+function construirTarjeta(datos, zonaHoraria) {
+    const descripcion = datos.weather[0].description;
+    const iconUrl = `https://openweathermap.org/img/wn/${datos.weather[0].icon}.png`;
 
     return `
-        <div class="weather-card p-4">
-            <div class="row align-items-center">
-                <div class="col-md-3 text-center">
-                    <img src="${iconUrl}" alt="${datos.weather[0].description}" class="icon-weather">
-                </div>
-                <div class="col-md-9">
-                    <h2 class="h3 mb-1">${datos.name}</h2>
-                    <p class="mb-2 text-muted">${datos.weather[0].description}</p>
-                    <h3 class="display-4 mb-0">${Math.round(datos.main.temp)}°C</h3>
-                    <div class="mt-3 row">
-                        <div class="col-sm-4">
-                            <strong>Sensación:</strong> ${Math.round(datos.main.feels_like)}°C
-                        </div>
-                        <div class="col-sm-4">
-                            <strong>Humedad:</strong> ${datos.main.humidity}%
-                        </div>
-                        <div class="col-sm-4">
-                            <strong>Viento:</strong> ${Math.round(datos.wind.speed)} m/s
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <article class="weather-card">
+            <p class="weather-date"><strong>Fecha/Hora:</strong> ${formatearFechaHora(datos.dt, zonaHoraria)}</p>
+            <p class="weather-description">${descripcion}</p>
+            <img class="weather-icon" src="${iconUrl}" alt="${descripcion}">
+            <p class="weather-temperature"><strong>Grados:</strong> ${Math.round(datos.main.temp)} °C</p>
+            <p class="weather-humidity"><strong>Humedad:</strong> ${datos.main.humidity} %</p>
+        </article>
     `;
 }
 
-function construirPronostico(lista) {
-    const dias = new Map();
+function construirPronostico(actual, datosPronostico) {
+    const zonaHoraria = datosPronostico.city.timezone;
+    const tarjetaActual = construirTarjeta(actual, zonaHoraria);
+    const tarjetasPronostico = datosPronostico.list
+        .map((prediccion) => construirTarjeta(prediccion, zonaHoraria))
+        .join('');
 
-    lista.forEach((prediccion) => {
-        const fecha = new Date(prediccion.dt * 1000);
-        const clave = fecha.toISOString().slice(0, 10);
-
-        if (!dias.has(clave)) {
-            dias.set(clave, prediccion);
-        }
-    });
-
-    const datos = [...dias.values()].slice(0, 5);
-
-    return datos.map((prediccion) => {
-        const fecha = new Date(prediccion.dt * 1000);
-        const iconUrl = `https://openweathermap.org/img/wn/${prediccion.weather[0].icon}.png`;
-
-        return `
-            <div class="col-md-6 col-lg-2">
-                <div class="forecast-card p-3 text-center h-100">
-                    <div class="fw-bold mb-2">${fecha.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' })}</div>
-                    <img src="${iconUrl}" alt="${prediccion.weather[0].description}" class="mb-2">
-                    <div class="mb-1"><strong>${Math.round(prediccion.main.temp_max)}°C</strong></div>
-                    <div class="text-muted">${Math.round(prediccion.main.temp_min)}°C</div>
-                    <small class="text-muted">${prediccion.weather[0].description}</small>
-                </div>
-            </div>
-        `;
-    }).join('');
+    return tarjetaActual + tarjetasPronostico;
 }
 
 async function cargarTiempo() {
@@ -90,14 +60,10 @@ async function cargarTiempo() {
             obtenerDatos(urlPronostico)
         ]);
 
-        tiempoActual.innerHTML = construirCardActual(datosActuales);
-        forecastContainer.innerHTML = construirPronostico(datosPronostico.list);
+        cityName.textContent = datosActuales.name;
+        forecastContainer.innerHTML = construirPronostico(datosActuales, datosPronostico);
     } catch (error) {
-        tiempoActual.innerHTML = `
-            <div class="alert alert-danger">
-                No se pudo cargar la información meteorológica: ${error.message}
-            </div>
-        `;
+        forecastContainer.innerHTML = `<p role="alert">No se pudo cargar la información meteorológica: ${error.message}</p>`;
     }
 }
 

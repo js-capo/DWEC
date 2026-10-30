@@ -3,40 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiempo en Bilbao</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Actividad 13 - OpenWeather API</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background: #f4f7fb;
+            margin: 0;
+            padding: 26px 2.7%;
+            color: #111;
+            background: #fff;
+            font-family: "Times New Roman", serif;
+        }
+
+        h1 {
+            margin: 0 0 14px;
+            font-size: 20px;
+        }
+
+        hr {
+            margin: 0;
+            border: 0;
+            border-top: 1px solid #bbb;
+        }
+
+        h2 {
+            margin: 12px 0 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        #forecast {
+            padding: 0 1.8%;
         }
 
         .weather-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            min-height: 230px;
+            margin-bottom: 18px;
+            padding: 18px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid navy;
+            border-radius: 4px;
+            background: lightblue;
+            text-align: center;
         }
 
-        .forecast-card {
-            background: white;
-            border-radius: 12px;
-            min-height: 170px;
+        .weather-date,
+        .weather-description,
+        .weather-temperature,
+        .weather-humidity {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.4;
         }
 
-        .icon-weather {
-            width: 64px;
-            height: 64px;
+        .weather-date,
+        .weather-description {
+            font-weight: bold;
+        }
+
+        .weather-description {
+            margin-top: 10px;
+        }
+
+        .weather-icon {
+            width: 48px;
+            height: 48px;
+            margin: 12px 0;
+        }
+
+        .weather-temperature {
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
-    <main class="container py-5">
-        <h1 class="text-center mb-4">Tiempo en Bilbao</h1>
-        <section id="tiempo-actual" class="mb-5"></section>
-
-        <section>
-            <h2 class="h4 mb-3">Próximos 5 días</h2>
-            <div id="forecast" class="row g-3"></div>
-        </section>
+    <main>
+        <h1>Actividad 13 - OpenWeather API</h1>
+        <hr>
+        <h2 id="city-name">Bilbao</h2>
+        <section id="forecast" aria-label="Tiempo actual y pronóstico para los próximos cinco días"></section>
     </main>
 
     <script src="Actividad-13.js"></script>
