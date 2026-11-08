@@ -1,33 +1,135 @@
 /* Codigo del alumno */
 
 class Concesionario {
-    constructor() {
-        var nombre;
-        var direccion;
-        Array<Automovil> automoviles;
+    constructor(nombre, direccion) {
+        this._nombre = nombre;
+        this._direccion = direccion;
+        this._automoviles = [];
+    }
+
+    get nombre() {
+        return this._nombre;
+    }
+
+    set nombre(nombre) {
+        this._nombre = nombre;
+    }
+
+    get direccion() {
+        return this._direccion;
+    }
+
+    set direccion(direccion) {
+        this._direccion = direccion;
+    }
+
+    get automoviles() {
+        return this._automoviles;
     }
 
     agregarAutomovil(automovil) {
-        automoviles.push(automovil);
+        this._automoviles.push(automovil);
     }
 }
 
 class Automovil {
-    constructor() {
-        var matricula;
-        var marca;
-    }
-    static Motocicleta = class {
-        constructor() {
-            var modelo;
-            var potencia;
-            var numPuertas;
-            var capacidadMaletero;
+    constructor(matricula, marca, modelo) {
+        if (new.target === Automovil) {
+            throw new Error("No se pueden instanciar automoviles genericos");
         }
+
+        this._matricula = matricula;
+        this._marca = marca;
+        this._modelo = modelo;
     }
 
-    static Coche = class {
-        
+    get matricula() {
+        return this._matricula;
+    }
+
+    set matricula(matricula) {
+        this._matricula = matricula;
+    }
+
+    get marca() {
+        return this._marca;
+    }
+
+    set marca(marca) {
+        this._marca = marca;
+    }
+
+    get modelo() {
+        return this._modelo;
+    }
+
+    set modelo(modelo) {
+        this._modelo = modelo;
+    }
+}
+
+class Motocicleta extends Automovil {
+    constructor(matricula, marca, modelo, portaequipajes, cilindrada) {
+        super(matricula, marca, modelo);
+        this._portaequipajes = portaequipajes;
+        this._cilindrada = cilindrada;
+    }
+
+    get portaequipajes() {
+        return this._portaequipajes;
+    }
+
+    set portaequipajes(portaequipajes) {
+        this._portaequipajes = portaequipajes;
+    }
+
+    get cilindrada() {
+        return this._cilindrada;
+    }
+
+    set cilindrada(cilindrada) {
+        this._cilindrada = cilindrada;
+    }
+
+    toString() {
+        return `Motocicleta: matricula ${this.matricula}, marca ${this.marca}, modelo ${this.modelo}, portaequipajes ${this.portaequipajes}, cilindrada ${this.cilindrada}`;
+    }
+}
+
+class Coche extends Automovil {
+    constructor(matricula, marca, modelo, potencia, numPuertas, capacidadMaletero) {
+        super(matricula, marca, modelo);
+        this._potencia = potencia;
+        this._numPuertas = numPuertas;
+        this._capacidadMaletero = capacidadMaletero;
+    }
+
+    get potencia() {
+        return this._potencia;
+    }
+
+    set potencia(potencia) {
+        this._potencia = potencia;
+    }
+
+    get numPuertas() {
+        return this._numPuertas;
+    }
+
+    set numPuertas(numPuertas) {
+        this._numPuertas = numPuertas;
+    }
+
+    get capacidadMaletero() {
+        return this._capacidadMaletero;
+    }
+
+    set capacidadMaletero(capacidadMaletero) {
+        this._capacidadMaletero = capacidadMaletero;
+    }
+
+    toString() {
+        return `Coche: matricula ${this.matricula}, marca ${this.marca}, modelo ${this.modelo}, potencia ${this.potencia}, numero de puertas ${this.numPuertas}, capacidad del maletero ${this.capacidadMaletero}`;
     }
 }
 
@@ -59,7 +161,7 @@ concesionario1.agregarAutomovil(moto2);
 concesionario1.agregarAutomovil(coche2);
 concesionario1.agregarAutomovil(coche3);
 
-for(const automovil of concesionario1.automoviles) {
+for (const automovil of concesionario1.automoviles) {
     document.write(automovil);
     document.write("<br>");
 }
@@ -67,7 +169,7 @@ for(const automovil of concesionario1.automoviles) {
 try {
     const cocheGenerico = new Automovil("BI-1239-CC", "Seat", "Ibiza");
 }
-catch(e) {
-    document.write("<br>")
+catch (e) {
+    document.write("<br>");
     document.write(e);
 }
