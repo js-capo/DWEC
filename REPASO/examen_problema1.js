@@ -2,134 +2,154 @@
 
 class Concesionario {
     constructor(nombre, direccion) {
-        this._nombre = nombre;
-        this._direccion = direccion;
-        this._automoviles = [];
-    }
-
-    get nombre() {
-        return this._nombre;
-    }
-
-    set nombre(nombre) {
-        this._nombre = nombre;
-    }
-
-    get direccion() {
-        return this._direccion;
-    }
-
-    set direccion(direccion) {
-        this._direccion = direccion;
-    }
-
-    get automoviles() {
-        return this._automoviles;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.automoviles = []; // Un array de automóviles, VACÍO
     }
 
     agregarAutomovil(automovil) {
-        this._automoviles.push(automovil);
+        this.automoviles.push(automovil); // .push sirve para añadir un nuevo elemento al array
+    }
+
+    // Getters
+    getNombre() {
+        return this.nombre;
+    }
+
+    getDireccion() {
+        return this.direccion;
+    }
+
+    getAutomoviles() {
+        return this.automoviles;
+    }
+
+    // Setters: SIN EL MÉTODO SET DEL ARRAY AUTOMÓVILES
+    setNombre(nombre) {
+        this.nombre = nombre;
+    }
+
+    setDireccion(direccion) {
+        this.direccion = direccion;
+    }
+
+    toString() { // Sobreescribimos el método toString
+        return `Nombre: ${this.nombre}, Dirección: ${this.direccion}`;
     }
 }
 
 class Automovil {
     constructor(matricula, marca, modelo) {
-        if (new.target === Automovil) {
-            throw new Error("No se pueden instanciar automoviles genericos");
+        this.matricula = matricula;
+        this.marca = marca;
+        this.modelo = modelo;
+
+        if (new.target === Automovil) { // Este bloque if sirve para poner la clase como abstracta, como si en java hiciéramos: public abstract class ejemplo()
+            throw new Error("¡La clase Automóvil es abstracta! ¡No se puede instanciar!");
         }
-
-        this._matricula = matricula;
-        this._marca = marca;
-        this._modelo = modelo;
     }
 
-    get matricula() {
-        return this._matricula;
+    // Getters
+    getMatricula() {
+        return this.matricula;
     }
 
-    set matricula(matricula) {
-        this._matricula = matricula;
+    getMarca() {
+        return this.marca;
     }
 
-    get marca() {
-        return this._marca;
+    getModelo() {
+        return this.modelo;
     }
 
-    set marca(marca) {
-        this._marca = marca;
+    // Setters
+    setMatricula(matricula) {
+        this.matricula = matricula;
     }
 
-    get modelo() {
-        return this._modelo;
+    setMarca(marca) {
+        this.marca = marca;
     }
 
-    set modelo(modelo) {
-        this._modelo = modelo;
-    }
-}
-
-class Motocicleta extends Automovil {
-    constructor(matricula, marca, modelo, portaequipajes, cilindrada) {
-        super(matricula, marca, modelo);
-        this._portaequipajes = portaequipajes;
-        this._cilindrada = cilindrada;
+    setModelo(modelo) {
+        this.modelo = modelo;
     }
 
-    get portaequipajes() {
-        return this._portaequipajes;
-    }
-
-    set portaequipajes(portaequipajes) {
-        this._portaequipajes = portaequipajes;
-    }
-
-    get cilindrada() {
-        return this._cilindrada;
-    }
-
-    set cilindrada(cilindrada) {
-        this._cilindrada = cilindrada;
-    }
-
-    toString() {
-        return `Motocicleta: matricula ${this.matricula}, marca ${this.marca}, modelo ${this.modelo}, portaequipajes ${this.portaequipajes}, cilindrada ${this.cilindrada}`;
+    toString() { // Sobreescribimos el método toString
+        return `Matrícula: ${this.matricula}, Marca: ${this.marca}, Modelo: ${this.modelo}`;
     }
 }
 
 class Coche extends Automovil {
     constructor(matricula, marca, modelo, potencia, numPuertas, capacidadMaletero) {
-        super(matricula, marca, modelo);
-        this._potencia = potencia;
-        this._numPuertas = numPuertas;
-        this._capacidadMaletero = capacidadMaletero;
+        super(matricula, marca, modelo); // hereda de la clase Automovil, super() es para que llame al padre
+
+        this.potencia = potencia;
+        this.numPuertas = numPuertas;
+        this.capacidadMaletero = capacidadMaletero;
     }
 
-    get potencia() {
-        return this._potencia;
+    // Getters
+    getPotencia() {
+        return this.potencia;
     }
 
-    set potencia(potencia) {
-        this._potencia = potencia;
+    getNumPuertas() {
+        return this.numPuertas;
     }
 
-    get numPuertas() {
-        return this._numPuertas;
+    getCapacidadMaletero() {
+        return this.capacidadMaletero;
     }
 
-    set numPuertas(numPuertas) {
-        this._numPuertas = numPuertas;
+    // Setters
+    setPotencia(potencia) {
+        this.potencia = potencia;
     }
 
-    get capacidadMaletero() {
-        return this._capacidadMaletero;
+    setNumPuertas(numPuertas) {
+        this.numPuertas = numPuertas;
     }
 
-    set capacidadMaletero(capacidadMaletero) {
-        this._capacidadMaletero = capacidadMaletero;
+    setCapacidadMaletero(capacidadMaletero) {
+        this.capacidadMaletero = capacidadMaletero;
     }
 
-    toString() {
-        return `Coche: matricula ${this.matricula}, marca ${this.marca}, modelo ${this.modelo}, potencia ${this.potencia}, numero de puertas ${this.numPuertas}, capacidad del maletero ${this.capacidadMaletero}`;
+    toString() { // Sobreescribimos el método toString
+        return super.toString() +
+           ` Potencia: ${this.potencia}, Puertas: ${this.numPuertas}, Capacidad del Maletero: ${this.capacidadMaletero}`; // Con super(), cogemos el método toString de la clase padre para los campos heredados
+    }
+}
+
+class Motocicleta extends Automovil {
+    constructor(matricula, marca, modelo, portaequipajes, cilindrada) {
+        super(matricula, marca, modelo); // hereda de la clase Automovil, super() es para que llame al padre
+
+        this.portaequipajes = portaequipajes;
+        this.cilindrada = cilindrada;
+    }
+
+    // Getters
+    getPortaequipajes() {
+        return this.portaequipajes;
+    }
+
+    getCilindrada() {
+        return this.cilindrada;
+    }
+
+    // Setters
+    setPortaequipajes(portaequipajes) {
+        this.portaequipajes = portaequipajes;
+    }
+
+    setCilindrada(cilindrada) {
+        this.cilindrada = cilindrada;
+    }
+
+    toString() { // Sobreescribimos el método toString
+        return super.toString() + 
+           ` Portaequipajes: ${this.portaequipajes}, Cilindrada: ${this.cilindrada}`;
     }
 }
 
@@ -161,8 +181,17 @@ concesionario1.agregarAutomovil(moto2);
 concesionario1.agregarAutomovil(coche2);
 concesionario1.agregarAutomovil(coche3);
 
-for (const automovil of concesionario1.automoviles) {
+for(const automovil of concesionario1.automoviles) {
     document.write(automovil);
+    document.write("<br>");
+}
+
+try {
+    const cocheGenerico = new Automovil("BI-1239-CC", "Seat", "Ibiza");
+}
+catch(e) {
+    document.write("<br>")
+(automovil);
     document.write("<br>");
 }
 
