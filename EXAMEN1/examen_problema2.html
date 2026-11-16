@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problema 2 - Consulta de productos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .panel {
+      width: 50%;
+      padding: 20px;
+      border: 2px solid black;
+      text-align: center;
+    }
+
+    .listado {
+      background-color: #dcedc8;
+    }
+
+    .detalle {
+      background-color: #fff3cd;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid black;
+    }
+
+    tbody tr {
+      cursor: pointer;
+    }
+
+    td img {
+      width: 60px;
+    }
+
+    .card {
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .card-img-top {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .text-left {
+      text-align: left;
+    }
+  </style>
+</head>
+<body onload="inicializar()">
+  <main class="container">
+    <section class="panel listado">
+      <h2>Listado de productos</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbodyProductos"></tbody>
+      </table>
+    </section>
+
+    <section class="panel detalle">
+      <h2>Detalle del producto</h2>
+
+      <div id="contenedorTarjetaProducto"></div>
+    </section>
+  </main>
+  <script src="examen_problema2.js"></script>
+</body>
+</html>
