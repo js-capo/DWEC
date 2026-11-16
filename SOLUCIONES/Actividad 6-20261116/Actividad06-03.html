@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="rdo"></div>
+    <button onclick="jugar()">Obtener Combinación</button>
+    <script>
+
+        let jugar = function(){
+            let rdo = document.getElementById("rdo");
+            rdo.innerHTML = `<h3>${euromillon()}</h3>`;
+        }
+
+        /*
+        function euromillon() {
+            let numeros = new Set();
+            let estrellas = new Set();
+
+            while(numeros.size < 5) {
+                // genero un aleatorio, y hago un add
+                let n = 1 + parseInt(Math.random()*50);
+                numeros.add(n) // si hago un add de algo que ya esta no tiene efecto
+            }
+
+            while(estrellas.size < 2) {
+                // genero un aleatorio, y hago un add
+                let n = 1 + parseInt(Math.random()*12);
+                estrellas.add(n) // si hago un add de algo que ya esta no tiene efecto
+            }
+
+            // aqui ya tendriamos los numeros y las estrellas y solo tendriamos que ordenarlos
+            // paso el set a un array con [...] y asi puedo hacer el join por espacios
+            return [...numeros].join(" ") + " : " + [...estrellas].join(" ");
+        }
+        */
+
+        function euromillon(){
+            let comb = " ";
+            for(let i=0; i<5; i++){
+                //Se suma un 1 para que los números sean del 1 al 50, ya que si no solo obtendriamos 
+                // del 0 al 49 con el (Math.random()*50). Math.random() devuelve un número del 0 al 1,
+                // sin incluir el 1.
+                let valor = 1 + parseInt(Math.random()*50);
+                // se comprueba si el aleatorio generado ya existe en la cadena que se está generando
+                // en cada paso del bucle. Si ya existe se vuelve a lanzar uno nuevo
+                while (comb.indexOf(" " + valor + " ")!=-1) {
+                    valor = 1 + parseInt(Math.random()*50);
+                }
+                comb += valor + " ";
+            }
+            let estrellas = "";
+            for(let i=0; i<2; i++){
+                let valor = 1 + parseInt(Math.random()*12);
+                while (estrellas.indexOf(" " + valor + " ")!=-1){
+                    valor = 1 + parseInt(Math.random()*12);
+                }
+                estrellas += valor + " ";
+            }
+            return comb + " : " + estrellas;
+        }
+
+    </script>
+</body>
+</html>

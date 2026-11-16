@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const efect = {
+            saldo:0,
+            ingresar : function(cantidad) {
+                this.saldo += cantidad;
+            },
+            gastar(cantidad){
+                this.saldo -= cantidad;
+            },
+            [Symbol.toPrimitive] : function(hint){
+                return (hint == "string")?` Efectivo: ${this.saldo}€`:this.saldo;
+            }
+        }
+
+        function Efectivo(){
+            this.saldo = 0;
+            this.ingresar =  function(cantidad) {
+                this.saldo += cantidad;
+            }
+            this.gastar = function(cantidad){
+                this.saldo -= cantidad;
+            }
+            this.valueOf = function(){
+                return this.saldo;
+            }
+            this.toString = function(){
+                return ` Efectivo: ${this.saldo}€`;
+            }
+        }
+
+        const efectivo = new Efectivo();
+
+        efectivo.saldo = +prompt("Saldo Inicial:");
+        console.log(""+efectivo);
+
+        let resp = prompt("[I]ngreso o [G]asto");
+        while (resp){
+            let cant = +prompt("Cantidad");
+            if (resp == "I" || resp == "i"){
+                efectivo.ingresar(cant);
+                console.log(`Ingresados ${cant}€ : ${efectivo}`);
+            } else {
+                /* En este ejemplo se compara cantidad con efectivo, porque efectivo es un objeto, pero al 
+                hacer la comparación lo intenta convertir a un dato primitivo. Dependiendo del contexto se irá
+                al valueOf, si es numérico o al toString si es alfanumérico. Sin embargo, en la actividad 1
+                la comparación es con efectivo.saldo que es una propiedad del objeto*/
+
+                if (cant > efectivo){
+                    alert(`Sólo quedan ${efectivo}`);
+                } else {
+                    efectivo.gastar(cant);
+                    /* en este console.log al ser un contexto de cadena, para visualizar efectivo irá a la 
+                    función toString del objeto efectivo*/
+                    console.log(`gastados ${cant}€ : Saldo ${efectivo}`);
+               }            
+            }
+            resp = prompt("[I]ngreso o [G]asto");
+        }
+
+        console.log(`${efectivo}`); 
+    </script>
+</body>
+</html>

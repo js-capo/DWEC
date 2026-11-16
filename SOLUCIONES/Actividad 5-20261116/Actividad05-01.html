@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const efect = {
+            saldo:0,
+            ingresar : function(cantidad) {
+                this.saldo += cantidad;
+            },
+            gastar(cantidad){
+                this.saldo -= cantidad;
+            }
+        }
+
+        function Efectivo(){
+            this.saldo = 0;
+            this.ingresar =  function(cantidad) {
+                this.saldo += cantidad;
+            }
+            this.gastar = function(cantidad){
+                this.saldo -= cantidad;
+            }
+        }
+        /* Alternativa con el objeto sería*/
+        // const efectivo = efect;
+         /* Alternativa con la función constructora*/
+        const efectivo = new Efectivo();
+
+        efectivo.saldo = +prompt("Saldo Inicial:");
+        console.log(`Efectivo Inicial : ${efectivo.saldo}`);
+
+        let resp = prompt("[I]ngreso o [G]asto");
+        while (resp){
+            if (resp == "I" || resp == "i"){
+                let cant = +prompt("Cantidad");
+                efectivo.ingresar(cant);
+                console.log(`Ingresados ${cant}€ : Saldo ${efectivo.saldo}`);
+            } else if (resp == "G" || resp == "g") {
+                let cant = +prompt("Cantidad");
+                if (cant > efectivo.saldo){
+                /* Si la cantidad es superior al saldo que queda, visualiza el mensaje de error*/
+                   alert(`Sólo quedan ${efectivo.saldo}€`);
+                } else {
+                    efectivo.gastar(cant);
+                    console.log(`Gastados ${cant}€ : Saldo ${efectivo.saldo}`);
+                }            
+            }
+            else {
+                alert("Debe ser I, i o G o g");
+            }
+            resp = prompt("[I]ngreso o [G]asto");
+        }
+         /* Visualiza el efectivo final*/
+        console.log(`Efectivo Final : ${efectivo.saldo}`);
+    </script>
+</body>
+</html>

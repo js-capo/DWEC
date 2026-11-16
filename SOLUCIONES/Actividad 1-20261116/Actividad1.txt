@@ -1,0 +1,110 @@
+1.1 
+4 + 3 * 2 % 2
+4 + 6 % 2
+4 + 0
+4
+1.2
+12 + "2" + 2
+"12" + "2" + 2
+"122" + "2"
+"1222"
+1.3
+12 + + "2" + 2
+12 + 2 + 2
+14 + 2
+16
+1.4 
+12 + 2 + "2"
+14 + "2"
+"14" + "2"
+"142"
+1.5
+12 && true || undefined
+t && t --> Expresión true 
+true
+1.6
+12 || true && undefined
+t || ...
+12
+1.7
+"Hola" ** 2
+NaN ** 2
+NaN
+1.8
+("")?"uno":"" 
+false?"uno":""
+""
+1.9
+undefined >= null
+NaN >= 0
+false
+
+1.10
+"12" == 12
+12 == 12
+true
+
+1.11
+"12" === 12
+false
+
+1.12
++"12" === 12
+12 === 12
+true
+
+1.13
+!!"true" !== true
+true !== true
+false
+
+1.14
+12>0 && null || "Hola" || undefined
+true && null || "Hola" || undefined
+false || "Hola" || undefined
+false || true --> La expresión es true
+"Hola"
+
+1.15
+12>0 || null && "Hola" && undefined
+true || ...
+
+Ejemplo adicional
+12<0 || null && "Hola" && undefined
+null && "Hola" && undefined
+false && ...
+null
+
+Otro
+12<0 || "null" && "Hola" && undefined
+false || undefined
+undefined
+
+******
+var1 = 10
+11 ** 2 = 121
+var 1 = 11 su valor final en el primer caso 
+10 + 12 = 22
+var1 = 12 su valor final en el segundo caso
+************
+
+2
+2.1 cantidad * precio * 1.18 * (1 - descuento / 100)
+2.2 (poblacion == "Bilbao" || poblacion == "Madrid") &&
+    sueldo >= 1000 && sueldo <= 1500
+2.3 ++contador * 10 > limite
+2.4 var1 == undefined
+2.5 productos / 10
+   parseInt(productos / 10) + (productos % 10 > 0?1:0)
+
+/*En js en las comparaciones: null, undefined o "" si lo intenta convertir
+ a booleano es false. Por eso valdría con el ternario siguiente, ya que si 
+tiene valor devuelve true y sino es false*/ 
+
+2.6 nombre ? nombre : false
+2.7 descuento == 0 ? 5 : descuento ( con ternario)
+    descuento || 5                 (con el operador OR)
+
+
+
+

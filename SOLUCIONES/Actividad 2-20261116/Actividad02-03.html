@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <script>
+        let opc = +prompt(
+        `1. 0020 — 007F  Basic Latin
+2. 20A0 — 20CF  Currency Symbols
+3. 2190 — 21FF  Arrows
+4. 2200 — 22FF  Mathematical Operators
+5. 2600 — 26FF  Miscellaneous Symbols
+6. 2700 — 27BF  Dingbats`);
+        let v1, v2;
+        switch (opc){
+            case 1:
+                v1 = "0020";
+                v2 = "007F";
+                break;
+            case 2:
+                v1 = "20A0";
+                v2 = "20CF";
+                break;
+            case 3:
+                v1 = "2190";
+                v2 = "21FF";
+                break;
+            case 4:
+                v1 = "2200";
+                v2 = "22FF";
+                break;
+            case 5:
+                v1 = "2600";
+                v2 = "26FF";
+                break;
+            case 6:
+                v1 = "2700";
+                v2 = "27BF";
+                break;
+            default:
+                alert("Opción Incorrecta");
+                break;
+        }
+        /* v1 y v2 están en base 16, te convierte a decimal y los pasa a entero*/
+        const n1 = parseInt(v1,16);
+        const n2 = parseInt(v2,16);
+        /*
+        <table>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>    
+                <td></td>
+            </tr>
+        </table>
+        */
+       // al pone class='table' se ve mejor porque incorpora la clase table de la libreria bootstrap
+        document.writeln("<table  class='table'>");
+        document.write("<tr>");
+        let cont = 1;
+        for(let i=n1; i<=n2; i++)
+        {
+        /*se saca la letra correspondiente al valor unicode que se le pasa, que en nuestro caso es el número i */
+            document.write("<td>" + String.fromCharCode(i)+ "</td>");
+        /* Se comprueba si es múltiplo de 15 se empieza otra fila nueva, se salta de linea */
+            if (cont % 15 == 0){
+                /*Aqui cierra el tr actual y abre uno nuevo */
+                document.write("</tr><tr>");
+            }
+
+            cont++
+        }
+        document.writeln("</tr></table>");
+     </script>
+</body>
+</html>

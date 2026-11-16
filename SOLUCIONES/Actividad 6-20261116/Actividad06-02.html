@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* con el +prompt te convierte la cadena introducida a número. A esto se le llama castear o transformar*/
+      let dia = +prompt("Día");
+      let mes = +prompt("Mes");
+      let año = +prompt("Año");
+      /* Estos if de validación inicialmente en el programa se le llama clausula de Guarda
+      https://www.marindelafuente.com.ar/que-son-las-clausulas-de-guarda
+      Los return se ponen para cortar el flujo del programa
+      Tambien se puede lanzar el error con un throw */
+      if (dia < 1 || dia > 31) {
+        throw new Error("Dia invalido");
+        // return;
+      }
+
+      if (mes < 1 || mes > 12) {
+        throw new Error("Mes invalido");
+        // return;
+      }
+      /* la validación del año se ha puesto de 1985 al 2050*/
+      if (año < 1985 || año > 2050) {
+        throw new Error("Año invalido");
+        // return;
+      }
+
+      /* Los meses van del 0 al 11, por eso se resta 1, porque en el constructor new Date() van de 0 a 11 */
+      let fecha = new Date(año, mes - 1, dia);
+      console.log(fecha.toLocaleDateString());
+      /*DIA_MS son los milisegundos que tiene un dia */
+      const DIA_MS = 24 * 3600 * 1000;
+
+      let copiaFecha = new Date();
+      copiaFecha.setTime(fecha.getTime());
+
+      for (let i = 0; i < 15; i++) {
+        /* Le va sumando cada dia hasta 15 laborables(no tiene en cuenta domingo 
+        en milisegundos) */
+        copiaFecha.setTime(copiaFecha.getTime() + DIA_MS);
+        /* si el día es domingo que es el 0 ya que el calendario en ingles empieza en domingo, le suma un dia más
+          porque no le considera laborable*/
+        if (copiaFecha.getDay() == 0) {
+          copiaFecha.setTime(copiaFecha.getTime() + DIA_MS);
+        }
+      }
+      console.log(`En 15 días laborables será : ${copiaFecha}`);
+      /*Comprueba que dia de la semana cae la fecha introducida*/
+      let diaF = diaSem(fecha);
+      console.log(`Será ${diaF}`);
+      /* Se comprueba si el año de la fecha introducido es bisiesto*/
+      const añoFecha = fecha.getFullYear();
+      if ((añoFecha % 4 == 0 && añoFecha % 100 != 0) || añoFecha % 400 == 0) {
+        console.log("Es bisiesto");
+      } else {
+        console.log("NO es bisiesto");
+      }
+      let fecha2 = new Date();
+      /* Se pone en fecha2 lo mismo que hay en fecha*/
+      fecha2.setTime(fecha.getTime());
+      while (fecha2.getDay() != 0) {
+        fecha2.setTime(fecha2.getTime() + DIA_MS);
+      }
+      console.log(`El próximo domingo será el ${fecha2}`);
+      fecha2.setDate(1);
+      console.log(`El primer día del mes será ${fecha2}`);
+      // fecha de nacimiento
+      let nacimiento = new Date(1975, 4, 14);
+      let cumpleanos;
+      let hoy = new Date();
+      /* Este if comprueba si no ha cumplido  años el año vigente y el 
+      else indica que ha cumplido años este año*/
+      if (
+        nacimiento.getMonth() > hoy.getMonth() ||
+        (nacimiento.getMonth() == hoy.getMonth() &&
+          nacimiento.getDate() > hoy.getDate())
+      ) {
+        cumpleanos = new Date(
+          hoy.getFullYear(),
+          nacimiento.getMonth(),
+          nacimiento.getDate()
+        );
+      } else {
+        cumpleanos = new Date(
+          hoy.getFullYear() + 1,
+          nacimiento.getMonth(),
+          nacimiento.getDate()
+        );
+      }
+      console.log(
+        `Nació el ${nacimiento.toLocaleDateString()} Cumple el ${cumpleanos.toLocaleDateString()}`
+      );
+      let tiempoMsg = cumpleanos.getTime() - hoy.getTime();
+      let dias = parseInt(tiempoMsg / DIA_MS);
+      console.log(`Quedan ${dias} dias`);
+      /* comprueba si faltan años. Es decir, el usuario ha introducido una fecha anterior a la de 
+      hoy o han pasado años. Por eso se utiliza Math.abs, por si dá negativo*/
+      tiempoMsg = fecha.getTime() - hoy.getTime();
+      let años = parseInt(tiempoMsg / (365 * DIA_MS));
+      console.log(
+        (años > 0 ? "Faltan " : "Han pasado ") + Math.abs(años) + " años"
+      );
+
+      let navidad = new Date(hoy.getFullYear(), 11, 25);
+      console.log(`Navidad cae en ${diaSem(navidad)} este año`);
+
+      let strFecha = prompt("Fecha (dd/mm/aaaa)");
+      let barra1 = strFecha.indexOf("/");
+      //let barra2 = strFecha.indexOf("/", barra1+1);
+      let barra2 = strFecha.lastIndexOf("/");
+      /* al pone el + por delante de la cadena lo transforma a entero*/
+      let d = +strFecha.substring(0, barra1);
+      let m = +strFecha.substring(barra1 + 1, barra2);
+      let a = +strFecha.substring(barra2 + 1);
+      // en el caso de que el año introducido sea <100 le suma 2000
+      if (a < 100) {
+        a += 2000;
+      }
+
+      let otraFecha = new Date(a, m - 1, d);
+      console.log(otraFecha);
+
+      function diaSem(fecha) {
+        let dia;
+        switch (fecha.getDay()) {
+          case 0:
+            dia = "Domingo";
+            break;
+          case 1:
+            dia = "Lunes";
+            break;
+          case 2:
+            dia = "Martes";
+            break;
+          case 3:
+            dia = "Miércoles";
+            break;
+          case 4:
+            dia = "Jueves";
+            break;
+          case 5:
+            dia = "Viernes";
+            break;
+          case 6:
+            dia = "Sábado";
+            break;
+        }
+
+        return dia;
+      }
+    </script>
+  </body>
+</html>

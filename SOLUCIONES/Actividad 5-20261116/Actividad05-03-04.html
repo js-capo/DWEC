@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="cant">Cantidad</label>
+                    <input type="text" id="cant" class="form-control" value="0.0">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" id="Ingresar" onclick="ingresar(cant.value)">Ingresar</button>
+                    <button class="btn btn-primary" id="Gastar" onclick="gastar()">Gastar</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h3 id="saldo"></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4" id="error">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function Efectivo(){
+            this.saldo = 0;
+            this.ingresar =  function(cantidad) {
+                this.saldo += cantidad;
+                return this;
+                /*Para hacer operaciones en cadena, se debe devolver 
+                el mismo objeto, para poder ir anidando los métodos.
+                El this hace referencia al objeto llamante*/
+            }
+            this.gastar = function(cantidad){
+                this.saldo -= cantidad;
+                return this;
+                /*Para hacer operaciones en cadena, se debe devolver 
+                el mismo objeto, para poder ir anidando los métodos*/
+            }
+            this.valueOf = function(){
+                return this.saldo;
+            }
+            this.toString = function(){
+                return ` Efectivo: ${this.saldo}€`;
+            }
+        }
+
+        const efectivo = new Efectivo();
+
+        // en esta funcion se recibe la cantidad directamente
+        // en el onnclick del html mas arriba se le pasa cant.value
+        function ingresar(cantidad){
+            document.getElementById("error").innerHTML = "";
+            efectivo.ingresar(parseFloat(cantidad));
+            document.getElementById("saldo").innerHTML = efectivo;
+        }
+
+        // por hacerlo de otra manera,
+        // la cantidad la obtenemos con document.getElementById buscando en el dom
+        function gastar(){
+            let cant = parseFloat(document.getElementById("cant").value);
+            document.getElementById("error").innerHTML = "";
+            if (cant > efectivo){
+                document.getElementById("error").innerHTML = `<div class='alert alert-danger'>No tiene suficiente saldo</div>`;
+            } else {
+                efectivo.gastar(cant);
+                document.getElementById("saldo").innerHTML = efectivo;
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

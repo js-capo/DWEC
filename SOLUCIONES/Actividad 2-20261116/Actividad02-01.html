@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      cont = 1;
+      do {
+        const op1 = Math.trunc(1 + Math.random()*10);
+        const op2 = Math.trunc(1 + Math.random()*10);
+        const oper = Math.trunc(1 + Math.random()*3);
+
+        //const pregunta = op1 + (oper==1?'+':oper==2?'-':'*') + op2;
+        // en la cadena " +-*" ponemos un " " por delante para que solo tenga en cuenta de  la posición 1 a la 3
+        //que son las validas
+        const pregunta = op1 + " +-*"[oper] + op2;
+        /*Se visualiza la pregunta en la pantalla, pide al usuario una respuesta y con el + lo convertimos a número número*/
+        const respUsuario = +prompt(pregunta);
+        let operStr;
+        let resp;
+        /*switch (oper){
+          case 1:
+              //operStr = '+';
+              resp = op1 + op2;
+              break
+          case 2:
+              //operStr = '-';
+              resp = op1 - op2;
+              break
+          case 3:
+              //operStr = '*';
+              resp = op1 * op2;
+              break
+        }
+        if (resp === respUsuario){
+          alert("OK");
+        } else {
+          alert("NOK");
+        }*/
+        ok = eval(pregunta) === respUsuario;
+        if (ok) {
+          alert("OK");
+        } else {
+            if (3 - cont == 0){
+                alert(`Acceso DENEGADO!`);
+            } else {
+                alert(`NOK : Le quedan ${3-cont} intentos`);
+            }
+            cont++;
+        }
+      /* el while actua mientras no sea Ok o contador no valga 4*/
+      } while (!ok && cont != 4);
+    </script>
+  </body>
+</html>

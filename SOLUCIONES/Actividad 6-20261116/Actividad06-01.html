@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let cadena = prompt("Texto");
+        console.log(invertida(cadena));
+        console.log(`Primera palabra : ${primera(cadena)}`);
+        console.log(`Última palabra : ${ultima(cadena)}`);
+        console.log(`Versales : ${versales(cadena)}`);
+        console.log(`Sin acentos : ${quitarAcentos(cadena)}`)
+        let pos =  cadena.indexOf(" ");
+        console.log(cadena);
+        while (pos != -1){
+            cadena = cadena.substring(pos+1);
+            console.log(cadena);
+            pos = cadena.indexOf(" ");
+        }
+
+
+        function invertida(cadena){
+            let rdo = "";
+            for(let i=cadena.length-1; i>=0; i--){
+                rdo += cadena[i];
+            }
+            return rdo;
+        }    
+
+        /*indexOf, devuelve la posición de la cadena*/
+        function primera(cadena){
+            let pos = cadena.indexOf(" ");
+            if (pos == -1){
+                return cadena;
+            } else {
+                return cadena.substring(0,pos);
+            }
+        }
+        /*indexOf, devuelve la última ocurrencia de la cadena*/
+        function ultima(cadena){
+            let pos = cadena.lastIndexOf(" ");
+            if (pos == -1){
+                return cadena;
+            } else {
+                return cadena.substring(pos+1);
+            }
+        }
+        function versales(cadena){
+            let rdo = cadena[0].toUpperCase();
+            for(let i=1; i<cadena.length;i++){
+                if (cadena[i]!=' '){
+                    rdo += cadena[i];
+                } else {
+                    rdo += " " + cadena[i+1].toUpperCase();
+                    i++;
+                }
+            }
+            return rdo;
+        }
+        function quitarAcentos(cadena){
+            const acentos = "áÁéÉíÍóÓúÚ";
+            const vocales = "aAeEiIoOuU";
+            let rdo = "";
+            for(let i=0;i<cadena.length;i++){
+                let pos = acentos.indexOf(cadena[i]);
+                if (pos == -1){
+                    rdo += cadena[i];
+                } else {
+                    rdo += vocales.substring(pos,pos+1);
+                }
+            }
+            return rdo;
+        }
+    </script>
+</body>
+</html>

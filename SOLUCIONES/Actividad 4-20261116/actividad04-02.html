@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let direccion = {
+            direccion : "Esperanza, 12",
+            poblacion : "Bilbao"
+        }
+        const juan = {
+            nombre : "Juan",
+            apellido : "López",
+            direccion
+        }
+        let copiaJuan = {};
+        /* El assign funciona en el primer nivel de profundidad.
+        En el primer nivel de profundidad, copia los valores de los atributos, con lo cual
+        un cambio en una popiedad de primer nivel se ejecuta y no afecta al original y 
+        viceversa y en niveles mas profundos, apunta a la referencia del objeto original,
+        con lo cual si se cambia en uno de los dos se refleja en los dos, porque es la misma
+        referencia o dirección de memoria */
+        Object.assign(copiaJuan,juan);
+        copiaJuan.direccion.poblacion = "Barakaldo";
+        copiaJuan.nombre = "Copia";
+        console.log(juan);
+        console.log(copiaJuan);
+        //En este caso  con el for in iteramos y copiamos los valores,
+        // va copiando los atributos con sus valores, independientemente
+        //  de la dirección de memoria(cada objeto tendria su dirección independiente).
+        // por eso un cambio se hace solo en el sitio donde los hacemos
+        function copia(destino, origen){
+            for(let p in origen){
+                if (typeof origen[p] == "object"){
+                    destino[p] = {};
+                    copia(destino[p],origen[p]);
+                } else {
+                    destino[p] = origen[p];
+                }
+            }
+        }
+
+        let copiaJuan2 = {};
+        copia(copiaJuan2, juan);
+        copiaJuan2.direccion.poblacion = "Madrid";
+        console.log(juan);
+        console.log(copiaJuan2);
+
+    </script>
+</body>
+</html>
